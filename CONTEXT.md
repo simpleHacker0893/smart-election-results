@@ -139,3 +139,26 @@ _Avoid_: registration, onboarding, signup, invitation
 **Station Assignment**:
 The set of Polling Stations a Party Agent is authorised to capture.
 _Avoid_: allocation, posting, coverage
+
+### Publication
+
+**Public Tally**:
+The publicly readable presentation of Tally figures and published Statutory
+Form images, served on its own origin. Never a Declared Result.
+_Avoid_: results site, live results, official tally, election results
+
+**Portal Copy**:
+IEBC's own published image of a Statutory Form, retrieved from its public
+portal. A third-party rendition — neither Evidence nor a Claim.
+_Avoid_: official image, IEBC scan, source image, reference image
+
+**Reconciliation**:
+A comparison between two or more records of the same Station Result, reporting
+where they agree and where they differ. It compares; it does not adjudicate.
+_Avoid_: verification, audit, validation, cross-check
+
+**Masked Rendition**:
+A derived copy of an Original with personal identifiers obscured for
+publication. Carries its own hash, is stored beside the Original, and never
+replaces it.
+_Avoid_: redacted image, public image, sanitised copy, scrubbed form

@@ -1,0 +1,2 @@
+{ "name": "smart-elections", "private": true, "packageManager": "pnpm@12.4.2",
+  "scripts": { "dev:site": "pnpm --filter site dev", "dev:console": "pnpm --filter console dev" } }

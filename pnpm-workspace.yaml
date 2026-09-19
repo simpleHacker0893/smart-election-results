@@ -1,0 +1,14 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# Build scripts are allow-listed explicitly, not approved interactively, so the
+# decision is reviewable in a diff (Constitution VIII.26 — treat every file as
+# published).
+allowBuilds:
+  # esbuild ships its platform binary as an optional dependency; the postinstall
+  # links it. The Convex CLI bundles functions with esbuild and does not work
+  # without it. Build-time only — nothing from it reaches a browser.
+  esbuild: true
+  sharp: false
+  unrs-resolver: false

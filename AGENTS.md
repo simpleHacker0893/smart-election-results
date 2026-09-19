@@ -6,6 +6,35 @@ documents and specs.
 This file is the canonical agent instructions for this repo. `CLAUDE.md` points
 here; keep the content in this file only, so the two cannot drift apart.
 
+## Binding documents
+
+Read both before writing code, copy, tickets or docs.
+
+- `CONSTITUTION.md` — the rules that do not bend: independence, evidence,
+  claims, honesty, neutrality, privacy, origin separation, limits on AI coding
+  agents, engineering standards. If a task conflicts with an article, stop and
+  raise it. Do not work around it.
+- `.docs/2026-09-19-techstack-design.md` — the stack for each surface, what
+  data lives where, and which decisions are still open.
+
+## Web surfaces
+
+Three apps on three origins in one repository. No origin sets a cookie scoped
+to the whole domain (ADR-0007).
+
+| Origin | App | What it is | Client JavaScript |
+|---|---|---|---|
+| `www.` | `apps/site` | Marketing site. No election data, no sign-in, no database. | First-party only |
+| `tally.` | `apps/tally` | Public Tally and Reconciliation. | None, ever — `script-src 'none'` |
+| `app.` | `apps/console` | Review console: Clerk, Convex, PWA. | Yes |
+
+- `apps/tally` is built by a zero-JavaScript generator, not Next.js, and shares
+  no markup with the other two apps. The shared layer is `packages/tokens`.
+  See ADR-0010 and ADR-0011.
+- `apps/site` and `apps/console` are scaffolded. `apps/tally` does not exist
+  yet, so its row above describes intent.
+- Evidence never lives in Convex. Convex holds derived data only (ADR-0015).
+
 ## Agent skills
 
 ### Issue tracker
